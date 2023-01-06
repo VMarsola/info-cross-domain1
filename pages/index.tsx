@@ -36,6 +36,9 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1>this is the: domain 1</h1>
+        <button onClick={() => postCrossDomainMessage("opa, foi pelo botao")}>
+          post cross domain
+        </button>
         <iframe
           style={{ width: "300px", height: "300px" }}
           src="https://info-cross-domain-2.vercel.app/getlocalstorage.html"
