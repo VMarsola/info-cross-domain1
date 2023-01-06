@@ -15,6 +15,7 @@ export default function Home() {
 
     console.log("antes do if");
     if (isIFrame(win) && win.contentWindow) {
+      console.log(window.location.href);
       win.contentWindow.postMessage(msg, window.location.href);
       console.log("dentro do if");
     }
