@@ -12,9 +12,13 @@ export default function Home() {
 
   const postCrossDomainMessage = useCallback((msg: unknown) => {
     var win = document.getElementById("ifr");
+
+    console.log("antes do if");
     if (isIFrame(win) && win.contentWindow) {
       win.contentWindow.postMessage(msg, window.location.href);
+      console.log("dentro do if");
     }
+    console.log("dps do if");
   }, []);
 
   useEffect(() => {
