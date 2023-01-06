@@ -33,7 +33,7 @@ export default function Home() {
       <main className={styles.main}>
         <h1>this is the: domain 1</h1>
         <iframe
-          style={{ display: "none" }}
+          style={{ width: "300px", height: "300px" }}
           src="https://info-cross-domain-2.vercel.app/getlocalstorage.html"
           id="ifr"
         ></iframe>
