@@ -15,8 +15,10 @@ export default function Home() {
 
     console.log("antes do if");
     if (isIFrame(win) && win.contentWindow) {
-      console.log(window.location.href);
-      win.contentWindow.postMessage(msg, window.location.href);
+      win.contentWindow.postMessage(
+        msg,
+        "https://info-cross-domain-2.vercel.app/"
+      );
       console.log("dentro do if");
     }
     console.log("dps do if");
