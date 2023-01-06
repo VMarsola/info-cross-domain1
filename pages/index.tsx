@@ -1,11 +1,23 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "../styles/Home.module.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const isIFrame = (input: HTMLElement | null): input is HTMLIFrameElement =>
+    input !== null && input.tagName === "IFRAME";
+
+  function postCrossDomainMessage(msg: unknown) {
+    var win = document.getElementById("ifr");
+    if (isIFrame(win) && win.contentWindow) {
+      win.contentWindow.postMessage(msg, window.location.href);
+    }
+  }
+  var postMsg = { login: "user from website1" }; // this is just example
+  postCrossDomainMessage(postMsg);
+
   return (
     <>
       <Head>
@@ -26,7 +38,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -117,7 +129,12 @@ export default function Home() {
             </p>
           </a>
         </div>
+        <iframe
+          style={{ display: "none" }}
+          src="http://example.com/getlocalstorage.html"
+          id="ifr"
+        ></iframe>
       </main>
     </>
-  )
+  );
 }
