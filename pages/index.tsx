@@ -34,7 +34,7 @@ export default function Home() {
         <h1>this is the: domain 1</h1>
         <iframe
           style={{ display: "none" }}
-          src="http://example.com/getlocalstorage.html"
+          src="https://info-cross-domain-2.vercel.app/getlocalstorage.html"
           id="ifr"
         ></iframe>
       </main>
