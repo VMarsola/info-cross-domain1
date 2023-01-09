@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Listner of Example.com</title>
   </head>
   <body>
     <h1>opa, acessou</h1>
@@ -16,15 +13,13 @@
      * Receiving message from other domain
      */
     window.addEventListener("message", function (event) {
-      console.log("event message triggered, domain 1", event);
-
       if (event.origin === PERMITTED_DOMAIN) {
-        var msg = JSON.parse(event.data);
-        var msgKey = Object.keys(msg)[0];
+        // var msg = JSON.parse(event.data);
+        // var msgKey = Object.keys(msg)[0];
         if (event.data) {
           localStorage.setItem("localstorage", event.data);
         } else {
-          localStorage.removeItem("localstorage");
+          // localStorage.removeItem("localstorage");
         }
       }
     });
